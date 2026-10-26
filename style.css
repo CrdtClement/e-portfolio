@@ -127,3 +127,21 @@ html { scroll-behavior: smooth; }
 
 .back-to-top { color: var(--accent); text-decoration: none; font-size: .9rem; }
 .back-to-top:hover { text-decoration: underline; }
+
+.cv-viewer {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: 1100px;
+  margin: 2rem auto 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.cv-container {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-top: 1.5rem;
+}
