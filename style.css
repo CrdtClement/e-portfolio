@@ -158,8 +158,41 @@ html { scroll-behavior: smooth; }
 .hero-actions {
   display: flex;
   flex-wrap: wrap;
-  gap: .75rem;
+  gap: .6rem;
   margin-top: 1.5rem;
+}
+
+.hero-link {
+  display: inline-flex;
+  align-items: center;
+  padding: .55rem .9rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  color: var(--accent);
+  font-size: .9rem;
+  font-weight: 600;
+  text-decoration: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
+.hero-link:hover {
+  border-color: var(--accent);
+  box-shadow: 0 3px 10px rgba(31, 78, 121, 0.12);
+  transform: translateY(-1px);
+}
+
+.hero-link:focus-visible {
+  outline: 3px solid #e0a800;
+  outline-offset: 2px;
+}
+
+@media (max-width: 480px) {
+  .hero-link {
+    flex: 1 1 calc(50% - .6rem);
+    justify-content: center;
+  }
 }
 
 .btn-primary {
