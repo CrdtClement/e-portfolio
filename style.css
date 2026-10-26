@@ -392,6 +392,10 @@ main p a:not([class]) {
 
 .sitebar {
   background: var(--accent);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 .sitebar-inner {
   display: flex;
@@ -410,18 +414,17 @@ main p a:not([class]) {
 .sitebar a:hover {
   background: rgba(255, 255, 255, 0.12);
 }
-.sitebar {
-  background: var(--accent);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Petite ombre pro */
+.sitebar a[aria-current="page"] {
+  background: rgba(255, 255, 255, 0.18);
+  border-bottom-color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
 }
 .sitebar a:focus-visible {
   outline: 2px solid #ffffff;
   outline-offset: -3px;
 }
-
 .header-links { font-size: .9rem; }
 .header-links a {
   color: var(--accent);
@@ -429,7 +432,6 @@ main p a:not([class]) {
   font-weight: 600;
 }
 .header-links a:hover { text-decoration: underline; }
-
 @media (max-width: 600px) {
   .sitebar a { padding: .6rem .7rem; font-size: .85rem; }
 }
