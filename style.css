@@ -5,6 +5,7 @@
   --accent: #1f4e79;
   --accent-text: #ffffff;
   --border: #d5d9df;
+  --max-width: 78rem
 }
 * { box-sizing: border-box; }
 body {
@@ -16,7 +17,7 @@ body {
 }
 header {
   padding: 2rem 1.5rem 1rem;
-  max-width: 60rem;
+  max-width: var(--max-width);
   margin: 0 auto;
 }
 header h1 { margin: 0; font-size: 1.8rem; }
@@ -25,7 +26,7 @@ nav {
   display: flex;
   flex-wrap: wrap;
   gap: .5rem;
-  max-width: 60rem;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1.5rem 1rem;
   border-bottom: 1px solid var(--border);
@@ -45,7 +46,7 @@ nav a[aria-current="page"] {
 }
 nav a:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
 main {
-  max-width: 60rem;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
@@ -346,7 +347,7 @@ html { scroll-behavior: smooth; }
   align-items: center;
   flex-wrap: wrap;
   gap: .25rem 1rem;
-  max-width: 60rem;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: .5rem 1.5rem;
 }
@@ -395,7 +396,7 @@ main p a:not([class]) {
 .sitebar-inner {
   display: flex;
   flex-wrap: wrap;
-  max-width: 60rem;
+  max-width: var(--max-width);
   margin: 0 auto;
   padding: 0 1rem;
 }
