@@ -208,3 +208,33 @@ html { scroll-behavior: smooth; }
   background: rgba(31, 78, 121, 0.08);
   border-radius: 999px;
 }
+
+.project-card-link {
+  color: inherit;
+  text-decoration: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+.project-card-link:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.12);
+  transform: translateY(-2px);
+}
+.project-card-link:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
+
+.card-more {
+  margin-top: .9rem;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+.project-detail h4 { margin: 1.5rem 0 .4rem; color: var(--accent); }
+.project-detail figure { margin: 1.5rem 0; }
+.project-detail img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+.project-detail figcaption { margin-top: .5rem; font-size: .85rem; color: var(--muted); }
