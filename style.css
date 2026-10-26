@@ -410,10 +410,12 @@ main p a:not([class]) {
 .sitebar a:hover {
   background: rgba(255, 255, 255, 0.12);
 }
-.sitebar a[aria-current="page"] {
-  background: rgba(255, 255, 255, 0.18);
-  border-bottom-color: #ffffff;
-  font-weight: 600;
+.sitebar {
+  background: var(--accent);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15); /* Petite ombre pro */
 }
 .sitebar a:focus-visible {
   outline: 2px solid #ffffff;
