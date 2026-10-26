@@ -238,3 +238,62 @@ html { scroll-behavior: smooth; }
   border-radius: 8px;
 }
 .project-detail figcaption { margin-top: .5rem; font-size: .85rem; color: var(--muted); }
+/* --- NOUVEAUX STYLES POUR LA PRÉSENTATION DES PROJETS --- */
+
+.project-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .25rem;
+}
+
+.project-header h3 {
+  margin: 0;
+}
+
+/* Bouton GitHub stylisé */
+.github-link {
+  display: inline-flex;
+  align-items: center;
+  gap: .4rem;
+  padding: .4rem .8rem;
+  background: var(--text);
+  color: #ffffff;
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: .85rem;
+  font-weight: 500;
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.github-link:hover {
+  opacity: 0.88;
+  transform: translateY(-1px);
+}
+
+.github-link:focus-visible {
+  outline: 3px solid #e0a800;
+  outline-offset: 2px;
+}
+
+.meta {
+  font-size: .9rem;
+  color: var(--muted);
+  font-weight: 500;
+  margin-top: .2rem;
+  margin-bottom: 1rem;
+}
+
+/* Badge de note / résultat */
+.grade-badge {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .4rem .8rem;
+  background: rgba(31, 78, 121, 0.1);
+  border-left: 3px solid var(--accent);
+  color: var(--accent);
+  border-radius: 4px;
+  font-size: .95rem;
+}
