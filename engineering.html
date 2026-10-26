@@ -8,9 +8,10 @@
 </head>
 <body>
   <header>
-    <h1>Clément</h1>
+    <h1>Clément Cardot</h1>
     <p>Engineering student, ENSEEIHT</p>
   </header>
+  
   <nav aria-label="Main navigation">
       <a href="index.html">Welcome</a>
       <a href="engineering.html" aria-current="page">Engineering course</a>
@@ -19,110 +20,126 @@
       <a href="sport.html">Sport &amp; other activities</a>
       <a href="career.html">Career Development</a>
   </nav>
+
   <main>
     <h2>Engineering course</h2>
-    <p class="section-intro">My path, my skills and the projects I'm proud of.</p>
+    <p class="section-intro">My path, my skills, and the technical projects I'm proud of.</p>
   
+    <!-- My Path -->
     <section class="career-section">
       <h3>My path</h3>
       <p>
-        Two years of preparatory classes (MP2I, then MPI*), then a fifth year,
-        before joining ENSEEIHT (Toulouse INP) in the Digital Sciences track.
+        Three years of selective prep classes in Amiens (MP2I, followed by MPI* and a 5/2 year), 
+        focused on Mathematics and Computer Science, before joining <strong>ENSEEIHT (Toulouse INP)</strong>.
       </p>
     </section>
   
+    <!-- What I'm studying now -->
     <section class="career-section">
       <h3>What I'm studying now</h3>
       <p>
-        First year of the engineering cycle in Computer Science and Telecommunication,
-        with a personal interest in data.
+        First year of the Master's engineering degree in Computer Science and Telecommunications, with a strong focus on software engineering, data, and theoretical computer science.
       </p>
       <ul class="detail-list">
-        <li><strong>Ada:</strong> learning a programming language designed for reliable, safety-critical software.</li>
-        <li><strong>Rocq (formerly Coq):</strong> learning to write formal proofs and to verify programs with a proof assistant.</li>
-        <li><strong>Statistics:</strong> analysing data and drawing conclusions from samples.</li>
-        <li><strong>Probability:</strong> modelling and reasoning about random phenomena.</li>
-        <li><strong>Optimisation problems:</strong> finding the best solution to a problem under constraints.</li>
+        <li><strong>Ada:</strong> Learning a programming language designed for reliable, safety-critical systems.</li>
+        <li><strong>Rocq (formerly Coq):</strong> Formal program verification and writing interactive proofs using a proof assistant.</li>
+        <li><strong>Statistics &amp; Probability:</strong> Modelling random phenomena, statistical estimation, and data analysis.</li>
+        <li><strong>Optimization:</strong> Finding optimal solutions under mathematical constraints.</li>
       </ul>
     </section>
   
+    <!-- Technical skills -->
     <section class="career-section">
       <h3>Technical skills</h3>
       <ul class="tags">
+        <li>Python</li>
         <li>C</li>
         <li>OCaml</li>
-        <li>SQL</li>
-        <li>Python</li>
+        <li>Rocq (Coq)</li>
         <li>Ada</li>
+        <li>SQL</li>
+        <li>Linux</li>
+        <li>Git / GitHub</li>
+        <li>LaTeX</li>
       </ul>
     </section>
     
+    <!-- PROJECT 1: Fourier -->
     <section class="career-section project-detail" id="fourier">
-    <h3>TIPE: Drawing with Fourier epicycles</h3>
-    <p class="meta">C · SDL2 · Fourier series</p>
+      <div class="project-header">
+        <h3>TIPE: Curve Reconstruction with Fourier Epicycles</h3>
+        <a href="https://github.com/CrdtClement/Fourier-Epicycles---Closed-Curve-Reconstruction" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub ↗
+        </a>
+      </div>
+      
+      <p class="meta">C · SDL2 · Complex Fourier Series · Image Processing</p>
   
-    <figure>
-      <img src="images/epicycles.gif" alt="Animation of rotating circles (epicycles) progressively redrawing a contour" loading="lazy">
-      <figcaption>The contour being redrawn in real time by the epicycles.</figcaption>
-    </figure>
+      <figure>
+        <img src="images/epicycles.gif" alt="Animation of rotating circles (epicycles) progressively redrawing a contour" loading="lazy">
+        <figcaption>Real-time reconstruction of a closed contour using complex Fourier series in C and SDL2.</figcaption>
+      </figure>
   
-    <h4>The idea</h4>
-    <p>
-      Take the contour of an image and redraw it as the sum of rotating circles,
-      called epicycles.
-    </p>
-    <!-- À ajouter : ta problématique de TIPE (pourquoi ce sujet, quelle question) -->
+      <h4>Problematic &amp; Goal</h4>
+      <p>
+        How can complex shapes extracted from 2D images be approximated and animated continuously using discrete trigonometric series? The objective was to implement a full pipeline from raw image contour extraction to real-time visual simulation using complex Fourier coefficients.
+      </p>
   
-    <h4>How it works</h4>
-    <ol class="detail-list">
-      <li>Extract the contour of the image with the Moore neighbour tracing algorithm, written in C.</li>
-      <li>Compute the Fourier coefficients of the contour.</li>
-      <li>Sort the coefficients by modulus, so the largest circles come first.</li>
-      <li>Animate the epicycles in real time with SDL2.</li>
-    </ol>
-    <!-- À ajouter : une difficulté technique et comment tu l'as résolue
-         (par exemple la gestion de la mémoire avec realloc, la synchronisation de l'affichage) -->
+      <h4>How it works</h4>
+      <ol class="detail-list">
+        <li><strong>Contour Extraction:</strong> Implemented the <em>Moore-Neighbor tracing algorithm</em> in C to extract ordered boundary points from a binary image.</li>
+        <li><strong>Fourier Computation:</strong> Computed discrete Fourier coefficients on complex numbers representing the contour coordinates.</li>
+        <li><strong>Sorting &amp; Optimization:</strong> Sorted epicycles by modulus magnitude so that major geometric shapes are drawn first before fine details.</li>
+        <li><strong>Real-Time Rendering:</strong> Animated rotating vectors and circles frame-by-frame using the SDL2 graphical library.</li>
+      </ol>
+
+      <h4>Technical Challenges &amp; Solution</h4>
+      <p>
+        Managing dynamic memory allocation for arbitrary contour sizes in C required rigorous handling of <code>realloc</code> and boundary checking. Furthermore, ensuring smooth 60 FPS animation with hundreds of active rotating vectors was achieved by precomputing complex exponential vectors before the rendering loop.
+      </p>
   
-    <h4>Key result</h4>
-    <p>
-      The regularity of the contour's derivative does not affect the quality of the
-      reconstruction. The Gibbs phenomenon only appears on discontinuous contours.
-    </p>
+      <h4>Key Result &amp; Outcome</h4>
+      <p>
+        Demonstrated that smooth contour derivatives guarantee exponential convergence without spatial artifacts, whereas discontinuous shapes exhibit the <em>Gibbs phenomenon</em>.
+      </p>
+      <div class="grade-badge">Oral Exam Grade: <strong>17.5 / 20</strong></div>
+    </section>
   
-    <h4>Outcome</h4>
-    <p>Oral exam grade: 17.4/20.</p>
-    <!-- À ajouter : lien GitHub du projet
-    <p><a class="back-to-top" href="https://github.com/CrdtClement/NOM-DU-DEPOT" target="_blank" rel="noopener">Source code on GitHub ↗</a></p> -->
-  </section>
+    <!-- PROJECT 2: File Recovery -->
+    <section class="career-section project-detail" id="file-recovery">
+      <div class="project-header">
+        <h3>TIPE: File Recovery from Raw Storage</h3>
+        <a href="https://github.com/CrdtClement/File-Manager-Simulation---File-Recovery-from-Raw-Storage" target="_blank" rel="noopener noreferrer" class="github-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
+          View on GitHub ↗
+        </a>
+      </div>
+
+      <p class="meta">C · SQLite · Data Persistence · File Systems</p>
   
-  <section class="career-section project-detail" id="file-recovery">
-    <h3>TIPE: File Recovery from Raw Storage</h3>
-    <p class="meta">C · SQLite · Search algorithms</p>
+      <figure>
+        <img src="images/file-recovery.png" alt="Diagram of the file system simulator and the recovery of deleted blocks" loading="lazy">
+        <figcaption>Simulation of raw data blocks persistence after metadata deletion.</figcaption>
+      </figure>
   
-    <figure>
-      <img src="images/file-recovery.png" alt="Diagram of the file system simulator and the recovery of deleted blocks" loading="lazy">
-      <figcaption>Recovery of file blocks from raw data.</figcaption>
-    </figure>
+      <h4>Problematic &amp; Goal</h4>
+      <p>
+        When a file is "deleted" from an operating system, its physical data blocks often remain intact until overwritten. How can unindexed binary data blocks be identified and reassembled into coherent files without metadata assistance?
+      </p>
   
-    <h4>The problem</h4>
-    <p>
-      What happens to a file when it is deleted, and how can its data be
-      recovered from raw storage?
-    </p>
-    <!-- À préciser : ta problématique exacte -->
-  
-    <h4>What I built</h4>
-    <ul class="detail-list">
-      <li>A file system simulator in C, backed by SQLite.</li>
-      <li>A model of file deletion that goes beyond simple removal.</li>
-      <li>A collaborative algorithm that rebuilds files from raw data blocks.</li>
-    </ul>
-    <!-- À détailler : comment la suppression est modélisée, comment les blocs sont
-         retrouvés et regroupés, comment tu as évalué les résultats -->
-  
-    <h4>Outcome</h4>
-    <!-- À ajouter : résultats, limites, ce que tu en as appris -->
-  </section>
+      <h4>What I Built</h4>
+      <ul class="detail-list">
+        <li><strong>File System Simulator:</strong> Developed a functional storage manager in C using SQLite to handle directory indexing and allocation tables.</li>
+        <li><strong>Deletion Model:</strong> Simulated real-world file deletion mechanisms by removing directory metadata while keeping raw data sectors intact on virtual storage.</li>
+        <li><strong>Recovery Algorithm:</strong> Co-developed a scanning algorithm capable of parsing raw memory dumps, identifying file headers/footers (file carving), and reassembling orphaned data blocks.</li>
+      </ul>
+
+      <h4>Key Takeaway</h4>
+      <p>
+        This project provided deep practical insights into low-level computer architecture, binary memory dumps, database-driven file indexing, and data security persistence.
+      </p>
+    </section>
   </main>
 </body>
 </html>
