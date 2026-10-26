@@ -125,6 +125,11 @@ html { scroll-behavior: smooth; }
 }
 .career-section h3 { margin-top: 0; }
 
+.career-section.first-section {
+  border-top: none;
+  padding-top: 0; /* Optionnel : réduit l'espace tout en haut si besoin */
+}
+
 .back-to-top { color: var(--accent); text-decoration: none; font-size: .9rem; }
 .back-to-top:hover { text-decoration: underline; }
 
