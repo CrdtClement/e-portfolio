@@ -21,7 +21,108 @@
   </nav>
   <main>
     <h2>Engineering course</h2>
-    <p>Content coming soon.</p>
+    <p class="section-intro">My path, my skills and the projects I'm proud of.</p>
+  
+    <section class="career-section">
+      <h3>My path</h3>
+      <p>
+        Two years of preparatory classes (MP2I, then MPI*), then a fifth year,
+        before joining ENSEEIHT (Toulouse INP) in the Digital Sciences track.
+      </p>
+    </section>
+  
+    <section class="career-section">
+      <h3>What I'm studying now</h3>
+      <p>
+        First year of the engineering cycle in Computer Science and Telecommunication,
+        with a personal interest in data.
+      </p>
+      <ul class="detail-list">
+        <li><strong>Ada:</strong> learning a programming language designed for reliable, safety-critical software.</li>
+        <li><strong>Rocq (formerly Coq):</strong> learning to write formal proofs and to verify programs with a proof assistant.</li>
+        <li><strong>Statistics:</strong> analysing data and drawing conclusions from samples.</li>
+        <li><strong>Probability:</strong> modelling and reasoning about random phenomena.</li>
+        <li><strong>Optimisation problems:</strong> finding the best solution to a problem under constraints.</li>
+      </ul>
+    </section>
+  
+    <section class="career-section">
+      <h3>Technical skills</h3>
+      <ul class="tags">
+        <li>C</li>
+        <li>OCaml</li>
+        <li>SQL</li>
+        <li>Python</li>
+        <li>Ada</li>
+      </ul>
+    </section>
+    
+    <section class="career-section project-detail" id="fourier">
+    <h3>TIPE: Drawing with Fourier epicycles</h3>
+    <p class="meta">C · SDL2 · Fourier series</p>
+  
+    <figure>
+      <img src="images/epicycles.gif" alt="Animation of rotating circles (epicycles) progressively redrawing a contour" loading="lazy">
+      <figcaption>The contour being redrawn in real time by the epicycles.</figcaption>
+    </figure>
+  
+    <h4>The idea</h4>
+    <p>
+      Take the contour of an image and redraw it as the sum of rotating circles,
+      called epicycles.
+    </p>
+    <!-- À ajouter : ta problématique de TIPE (pourquoi ce sujet, quelle question) -->
+  
+    <h4>How it works</h4>
+    <ol class="detail-list">
+      <li>Extract the contour of the image with the Moore neighbour tracing algorithm, written in C.</li>
+      <li>Compute the Fourier coefficients of the contour.</li>
+      <li>Sort the coefficients by modulus, so the largest circles come first.</li>
+      <li>Animate the epicycles in real time with SDL2.</li>
+    </ol>
+    <!-- À ajouter : une difficulté technique et comment tu l'as résolue
+         (par exemple la gestion de la mémoire avec realloc, la synchronisation de l'affichage) -->
+  
+    <h4>Key result</h4>
+    <p>
+      The regularity of the contour's derivative does not affect the quality of the
+      reconstruction. The Gibbs phenomenon only appears on discontinuous contours.
+    </p>
+  
+    <h4>Outcome</h4>
+    <p>Oral exam grade: 17.4/20.</p>
+    <!-- À ajouter : lien GitHub du projet
+    <p><a class="back-to-top" href="https://github.com/CrdtClement/NOM-DU-DEPOT" target="_blank" rel="noopener">Source code on GitHub ↗</a></p> -->
+  </section>
+  
+  <section class="career-section project-detail" id="file-recovery">
+    <h3>TIPE: File Recovery from Raw Storage</h3>
+    <p class="meta">C · SQLite · Search algorithms</p>
+  
+    <figure>
+      <img src="images/file-recovery.png" alt="Diagram of the file system simulator and the recovery of deleted blocks" loading="lazy">
+      <figcaption>Recovery of file blocks from raw data.</figcaption>
+    </figure>
+  
+    <h4>The problem</h4>
+    <p>
+      What happens to a file when it is deleted, and how can its data be
+      recovered from raw storage?
+    </p>
+    <!-- À préciser : ta problématique exacte -->
+  
+    <h4>What I built</h4>
+    <ul class="detail-list">
+      <li>A file system simulator in C, backed by SQLite.</li>
+      <li>A model of file deletion that goes beyond simple removal.</li>
+      <li>A collaborative algorithm that rebuilds files from raw data blocks.</li>
+    </ul>
+    <!-- À détailler : comment la suppression est modélisée, comment les blocs sont
+         retrouvés et regroupés, comment tu as évalué les résultats -->
+  
+    <h4>Outcome</h4>
+    <!-- À ajouter : résultats, limites, ce que tu en as appris -->
+  </section>
   </main>
 </body>
 </html>
