@@ -74,7 +74,7 @@ body {
 
 .sitebar a:hover { background: rgba(255, 255, 255, 0.12); }
 
-.sitebar a[aria-current═"page"] {
+.sitebar a[aria-current="page"] {
   background: rgba(255, 255, 255, 0.18);
   border-bottom-color: #ffffff;
   font-weight: 600;
@@ -518,7 +518,7 @@ nav:not(.career-menu) a {
 
 nav:not(.career-menu) a:hover { background: #e8eef5; }
 
-nav:not(.career-menu) a[aria-current═"page"] {
+nav:not(.career-menu) a[aria-current="page"] {
   background: var(--accent);
   color: var(--accent-text);
   font-weight: 600;
