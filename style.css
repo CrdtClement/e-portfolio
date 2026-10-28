@@ -1,3 +1,21 @@
+/*╔══════════════════════════════════════════════════════════════════════════╗ 
+  ║                STYLE.CSS : e-portfolio de Clément Cardot                 ║  
+  ║  Sommaire                                                                ║
+  ║ 1. Variables                                                             ║
+  ║ 2. Base                                                                  ║
+  ║ 3. Mise en page (barre de navigation, en-tête, sections)                 ║ 
+  ║ 4. Boutons et liens                                                      ║        
+  ║ 5. Cartes (projets, activités, menu Career, role models)                 ║
+  ║ 6. Petits éléments (étiquettes, drapeaux, notes)                         ║
+  ║ 7. Pages spécifiques (accueil, CV, détail des projets)                   ║
+  ║ 8. Ancien menu <nav> (compatibilité)                                     ║
+  ║ 9. Responsive                                                            ║
+  ╚══════════════════════════════════════════════════════════════════════════╝ */
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                                1. VARIABLES
+   ══════════════════════════════════════════════════════════════════════════ */
 :root {
   --bg: #fafaf7;
   --text: #1c2430;
@@ -5,9 +23,17 @@
   --accent: #1f4e79;
   --accent-text: #ffffff;
   --border: #d5d9df;
-  --max-width: 78rem
+  --max-width: 80rem;
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                                    2. BASE
+   ══════════════════════════════════════════════════════════════════════════ */
 * { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
 body {
   margin: 0;
   font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
@@ -15,50 +41,133 @@ body {
   color: var(--text);
   line-height: 1.6;
 }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                                3. MISE EN PAGE
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* --- Barre de navigation principale (collée en haut) --- */
+.sitebar {
+  background: var(--accent);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+}
+
+.sitebar-inner {
+  display: flex;
+  flex-wrap: wrap;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.sitebar a {
+  padding: .8rem 1rem;
+  color: var(--accent-text);
+  text-decoration: none;
+  font-size: .95rem;
+  border-bottom: 3px solid transparent;
+}
+
+.sitebar a:hover { background: rgba(255, 255, 255, 0.12); }
+
+.sitebar a[aria-current═"page"] {
+  background: rgba(255, 255, 255, 0.18);
+  border-bottom-color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  z-index: 2;
+}
+
+.sitebar a:focus-visible {
+  outline: 2px solid #ffffff;
+  outline-offset: -3px;
+}
+
+/* --- En-tête (nom, titre, liens rapides) --- */
 header {
   padding: 2rem 1.5rem 1rem;
   max-width: var(--max-width);
   margin: 0 auto;
 }
+
 header h1 { margin: 0; font-size: 1.8rem; }
 header p { margin: .25rem 0 0; color: var(--muted); }
-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .5rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1.5rem 1rem;
-  border-bottom: 1px solid var(--border);
-}
-nav a {
-  padding: .5rem 1rem;
-  border: 1px solid var(--accent);
-  border-radius: 6px;
+
+.header-links { font-size: .9rem; }
+
+.header-links a {
   color: var(--accent);
   text-decoration: none;
-  font-size: .95rem;
+  font-weight: 600;
 }
-nav a:hover { background: #e8eef5; }
-nav a[aria-current="page"] {
-  background: var(--accent);
-  color: var(--accent-text);
-}
-nav a:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
+
+.header-links a:hover { text-decoration: underline; }
+
+/* --- Contenu principal --- */
 main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1.5rem 4rem;
 }
+
 main h2 { margin-top: 0; }
-.cv-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
+
+/* Liens dans le texte : soulignés */
+main p a:not([class]) {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 3px;
 }
 
+.section-intro { color: var(--muted); margin-top: -.5rem; }
+
+/* --- Sections --- */
+.career-section {
+  padding: 1.5rem 0;
+  border-top: 1px solid var(--border);
+  scroll-margin-top: 1rem;
+}
+
+.career-section h3 { margin-top: 0; }
+
+.career-section.first-section {
+  border-top: none;
+  padding-top: 0;
+}
+
+.home-section {
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--border);
+}
+
+.home-section h3 { margin-top: 0; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                              4. BOUTONS ET LIENS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Bouton plein (action principale) */
+.btn-primary {
+  display: inline-block;
+  padding: .6rem 1.2rem;
+  background: var(--accent);
+  color: var(--accent-text);
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  text-decoration: none;
+  font-size: .95rem;
+  transition: opacity .2s ease;
+}
+
+.btn-primary:hover { opacity: .9; }
+.btn-primary:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
+
+/* Bouton en contour (téléchargement du CV, etc.) */
 .btn-cv-secondary {
   display: inline-block;
   padding: .5rem 1rem;
@@ -67,102 +176,13 @@ main h2 { margin-top: 0; }
   color: var(--accent);
   text-decoration: none;
   font-size: .95rem;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color .2s ease, color .2s ease;
 }
 
-.btn-cv-secondary:hover {
-  background: rgba(31, 78, 121, 0.1);
-}
+.btn-cv-secondary:hover { background: rgba(31, 78, 121, 0.1); }
+.btn-cv-secondary:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
 
-.btn-cv-secondary:focus-visible {
-  outline: 3px solid #e0a800;
-  outline-offset: 2px;
-}
-html { scroll-behavior: smooth; }
-
-.section-intro { color: var(--muted); margin-top: -.5rem; }
-
-.career-menu {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1rem;
-  margin: 1.5rem 0 2.5rem;
-  padding: 0;
-  border-bottom: none;
-}
-
-.career-card {
-  display: flex;
-  flex-direction: column;
-  gap: .25rem;
-  padding: 1rem 1.2rem;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-left: 4px solid var(--accent);
-  border-radius: 8px;
-  color: var(--text);
-  text-decoration: none;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-
-.career-card:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.12);
-  transform: translateY(-2px);
-}
-
-.career-card:focus-visible {
-  outline: 3px solid #e0a800;
-  outline-offset: 2px;
-}
-
-.career-card-title { font-weight: 600; color: var(--accent); }
-.career-card-text { font-size: .9rem; color: var(--muted); }
-
-.career-section {
-  padding: 1.5rem 0;
-  border-top: 1px solid var(--border);
-  scroll-margin-top: 1rem;
-}
-.career-section h3 { margin-top: 0; }
-
-.career-section.first-section {
-  border-top: none;
-  padding-top: 0; /* Optionnel : réduit l'espace tout en haut si besoin */
-}
-
-.back-to-top { color: var(--accent); text-decoration: none; font-size: .9rem; }
-.back-to-top:hover { text-decoration: underline; }
-
-.cv-viewer {
-  display: block;
-  width: 100%;
-  max-width: 800px;
-  height: 1100px;
-  margin: 2rem auto 0;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-
-.cv-container {
-  display: flex;
-  justify-content: center;
-  gap: 1rem;
-  flex-wrap: wrap;
-  margin-top: 1.5rem;
-}
-.hero { padding: 1rem 0 2rem; }
-.hero h2 { font-size: 2rem; margin-bottom: .5rem; }
-.hero-lead { font-size: 1.15rem; max-width: 42rem; }
-.hero p { max-width: 42rem; }
-
-.hero-actions {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .6rem;
-  margin-top: 1.5rem;
-}
-
+/* Petit lien-carte de la page d'accueil */
 .hero-link {
   display: inline-flex;
   align-items: center;
@@ -184,115 +204,9 @@ html { scroll-behavior: smooth; }
   transform: translateY(-1px);
 }
 
-.hero-link:focus-visible {
-  outline: 3px solid #e0a800;
-  outline-offset: 2px;
-}
+.hero-link:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
 
-@media (max-width: 480px) {
-  .hero-link {
-    flex: 1 1 calc(50% - .6rem);
-    justify-content: center;
-  }
-}
-
-.btn-primary {
-  display: inline-block;
-  padding: .6rem 1.2rem;
-  background: var(--accent);
-  color: var(--accent-text);
-  border: 1px solid var(--accent);
-  border-radius: 6px;
-  text-decoration: none;
-  font-size: .95rem;
-  transition: opacity .2s ease;
-}
-.btn-primary:hover { opacity: .9; }
-.btn-primary:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
-
-.home-section { padding-top: 1.5rem; border-top: 1px solid var(--border); }
-.home-section h3 { margin-top: 0; }
-
-.project-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
-}
-
-.project-card {
-  display: flex;
-  flex-direction: column;
-  padding: 1.2rem;
-  background: #ffffff;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-.project-card h4 { margin: 0 0 .5rem; color: var(--accent); }
-.project-card p { margin: 0 0 1rem; font-size: .95rem; }
-.project-card-more { background: transparent; border-style: dashed; }
-
-.tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: .4rem;
-  margin: auto 0 0;
-  padding: 0;
-  list-style: none;
-}
-.tags li {
-  padding: .15rem .6rem;
-  font-size: .8rem;
-  color: var(--accent);
-  background: rgba(31, 78, 121, 0.08);
-  border-radius: 999px;
-}
-
-.project-card-link {
-  color: inherit;
-  text-decoration: none;
-  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
-}
-.project-card-link:hover {
-  border-color: var(--accent);
-  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.12);
-  transform: translateY(-2px);
-}
-.project-card-link:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
-
-.card-more {
-  margin-top: .9rem;
-  font-size: .9rem;
-  font-weight: 600;
-  color: var(--accent);
-}
-
-.project-detail h4 { margin: 1.5rem 0 .4rem; color: var(--accent); }
-.project-detail figure { margin: 1.5rem 0; }
-.project-detail img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-}
-.project-detail figcaption { margin-top: .5rem; font-size: .85rem; color: var(--muted); }
-/* --- NOUVEAUX STYLES POUR LA PRÉSENTATION DES PROJETS --- */
-
-.project-header {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: 1rem;
-  margin-bottom: .25rem;
-}
-
-.project-header h3 {
-  margin: 0;
-}
-
-/* Bouton GitHub stylisé */
+/* Bouton GitHub (pages de projets) */
 .github-link {
   display: inline-flex;
   align-items: center;
@@ -304,76 +218,105 @@ html { scroll-behavior: smooth; }
   text-decoration: none;
   font-size: .85rem;
   font-weight: 500;
-  transition: opacity 0.2s ease, transform 0.2s ease;
+  transition: opacity .2s ease, transform .2s ease;
 }
 
-.github-link:hover {
-  opacity: 0.88;
-  transform: translateY(-1px);
-}
+.github-link:hover { opacity: .88; transform: translateY(-1px); }
+.github-link:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
 
-.github-link:focus-visible {
-  outline: 3px solid #e0a800;
-  outline-offset: 2px;
-}
+/* Lien discret en bas de carte */
+.back-to-top { color: var(--accent); text-decoration: none; font-size: .9rem; }
+.back-to-top:hover { text-decoration: underline; }
 
-.meta {
-  font-size: .9rem;
-  color: var(--muted);
-  font-weight: 500;
-  margin-top: .2rem;
-  margin-bottom: 1rem;
-}
 
-/* Badge de note / résultat */
-.grade-badge {
-  display: inline-block;
+/* ══════════════════════════════════════════════════════════════════════════
+                                5. CARTES
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* --- Grille de cartes (colonnes automatiques) --- */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1rem;
   margin-top: 1rem;
-  padding: .4rem .8rem;
-  background: rgba(31, 78, 121, 0.1);
-  border-left: 3px solid var(--accent);
-  color: var(--accent);
-  border-radius: 4px;
-  font-size: .95rem;
 }
-.topbar {
-  background: var(--accent);
-  color: var(--accent-text);
-  font-size: .85rem;
-}
-.topbar-inner {
+
+/* --- Rangée de cartes centrées (Sport, Civic) --- */
+.card-row {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
   flex-wrap: wrap;
-  gap: .25rem 1rem;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: .5rem 1.5rem;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
 }
-.topbar-links { display: flex; gap: 1.25rem; }
-.topbar a {
-  color: var(--accent-text);
+
+.card-row .project-card { flex: 0 1 300px; }
+
+/* --- Carte standard --- */
+.project-card {
+  display: flex;
+  flex-direction: column;
+  padding: 1.2rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.project-card h4 { margin: 0 0 .5rem; color: var(--accent); }
+.project-card p { margin: 0 0 1rem; font-size: .95rem; }
+
+.project-card-more { background: transparent; border-style: dashed; }
+
+/* Carte sur toute la largeur de la grille (double diplôme) */
+.project-card-wide { grid-column: 1 / -1; }
+
+/* Carte cliquable (accueil → projets) */
+.project-card-link {
+  color: inherit;
   text-decoration: none;
-  opacity: .9;
-}
-.topbar a:hover { opacity: 1; text-decoration: underline; }
-.topbar a:focus-visible { outline: 2px solid #ffffff; outline-offset: 2px; }
-
-/* Menu principal : page active plus lisible, survol clair */
-nav a { cursor: pointer; }
-nav a[aria-current="page"] { font-weight: 600; cursor: default; }
-nav a:not([aria-current]):hover { text-decoration: underline; }
-
-/* Étiquettes : grises et neutres, pour ne pas ressembler à des boutons */
-.tags li {
-  color: var(--muted);
-  background: #eceff3;
-  cursor: default;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
 }
 
-/* Cartes cliquables : flèche à droite */
-.career-card { position: relative; padding-right: 2.5rem; }
+.project-card-link:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.12);
+  transform: translateY(-2px);
+}
+
+.project-card-link:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
+
+.card-more {
+  margin-top: .9rem;
+  font-size: .9rem;
+  font-weight: 600;
+  color: var(--accent);
+}
+
+/* --- Menu en cartes de la page Career Development --- */
+.career-menu {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  margin: 1.5rem 0 2.5rem;
+  padding: 0;
+  border-bottom: none;
+}
+
+.career-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: .25rem;
+  padding: 1rem 2.5rem 1rem 1.2rem;
+  background: #ffffff;
+  border: 1px solid var(--border);
+  border-left: 4px solid var(--accent);
+  border-radius: 8px;
+  color: var(--text);
+  text-decoration: none;
+  transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+}
+
 .career-card::after {
   content: "→";
   position: absolute;
@@ -383,68 +326,18 @@ nav a:not([aria-current]):hover { text-decoration: underline; }
   color: var(--accent);
 }
 
-/* Liens dans le texte : soulignés */
-main p a:not([class]) {
-  color: var(--accent);
-  text-decoration: underline;
-  text-underline-offset: 3px;
+.career-card:hover {
+  border-color: var(--accent);
+  box-shadow: 0 4px 12px rgba(31, 78, 121, 0.12);
+  transform: translateY(-2px);
 }
 
-.sitebar {
-  background: var(--accent);
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-.sitebar-inner {
-  display: flex;
-  flex-wrap: wrap;
-  max-width: var(--max-width);
-  margin: 0 auto;
-  padding: 0 1rem;
-}
-.sitebar a {
-  padding: .8rem 1rem;
-  color: var(--accent-text);
-  text-decoration: none;
-  font-size: .95rem;
-  border-bottom: 3px solid transparent;
-}
-.sitebar a:hover {
-  background: rgba(255, 255, 255, 0.12);
-}
-.sitebar a[aria-current="page"] {
-  background: rgba(255, 255, 255, 0.18);
-  border-bottom-color: #ffffff;
-  font-weight: 600;
-  position: relative;
-  z-index: 2;
-}
-.sitebar a:focus-visible {
-  outline: 2px solid #ffffff;
-  outline-offset: -3px;
-}
-.header-links { font-size: .9rem; }
-.header-links a {
-  color: var(--accent);
-  text-decoration: none;
-  font-weight: 600;
-}
-.header-links a:hover { text-decoration: underline; }
-@media (max-width: 600px) {
-  .sitebar a { padding: .6rem .7rem; font-size: .85rem; }
-}
-.card-row {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1rem;
-  margin-top: 1.5rem;
-}
-.card-row .project-card {
-  flex: 0 1 300px;
-}
+.career-card:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
+
+.career-card-title { font-weight: 600; color: var(--accent); }
+.career-card-text { font-size: .9rem; color: var(--muted); }
+
+/* --- Cartes des role models --- */
 .role-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
@@ -460,6 +353,7 @@ main p a:not([class]) {
   border: 1px solid var(--border);
   border-radius: 8px;
 }
+
 .role-card h4 { margin: 0 0 .15rem; font-size: 1.15rem; color: var(--accent); }
 .role-card .meta { margin: 0 0 .75rem; }
 .role-card p { margin: 0 0 .75rem; font-size: .95rem; }
@@ -474,13 +368,176 @@ main p a:not([class]) {
   border-radius: 4px;
 }
 
+.role-link { margin-top: auto; padding-top: .5rem; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                               6. PETITS ÉLÉMENTS
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* Ligne grise sous un titre (dates, lieu, type) */
+.meta {
+  margin-top: .2rem;
+  margin-bottom: 1rem;
+  font-size: .9rem;
+  font-weight: 500;
+  color: var(--muted);
+}
+
+/* Étiquettes grises : de l'information, pas des boutons */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .4rem;
+  margin: auto 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.tags li {
+  padding: .15rem .6rem;
+  font-size: .8rem;
+  color: var(--muted);
+  background: #eceff3;
+  border-radius: 999px;
+  cursor: default;
+}
+
+/* Petits drapeaux (images) */
 .flag {
   height: 1em;
   width: auto;
-  vertical-align: -0.12em;
   margin: 0 .1em;
+  vertical-align: -0.12em;
   border-radius: 2px;
   box-shadow: 0 0 0 1px rgba(0, 0, 0, 0.12);
 }
 
-.role-link { margin-top: auto; padding-top: .5rem; }
+/* Note ou résultat mis en avant */
+.grade-badge {
+  display: inline-block;
+  margin-top: 1rem;
+  padding: .4rem .8rem;
+  background: rgba(31, 78, 121, 0.1);
+  border-left: 3px solid var(--accent);
+  border-radius: 4px;
+  color: var(--accent);
+  font-size: .95rem;
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                            7. PAGES SPÉCIFIQUES
+   ══════════════════════════════════════════════════════════════════════════ */
+
+/* --- Accueil (hero) --- */
+.hero { padding: 1rem 0 2rem; }
+.hero h2 { margin-bottom: .5rem; font-size: 2rem; }
+.hero p { max-width: 42rem; }
+.hero-lead { max-width: 42rem; font-size: 1.15rem; }
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .6rem;
+  margin-top: 1.5rem;
+}
+
+/* --- Page CV --- */
+.cv-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.cv-viewer {
+  display: block;
+  width: 100%;
+  max-width: 800px;
+  height: 1100px;
+  margin: 2rem auto 0;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+/* --- Détail d'un projet (Engineering course) --- */
+.project-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: .25rem;
+}
+
+.project-header h3 { margin: 0; }
+
+.project-detail h4 { margin: 1.5rem 0 .4rem; color: var(--accent); }
+.project-detail figure { margin: 1.5rem 0; }
+
+.project-detail img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+}
+
+.project-detail figcaption {
+  margin-top: .5rem;
+  font-size: .85rem;
+  color: var(--muted);
+}
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                        8. ANCIEN MENU <nav> (compatibilité)
+     Ne concerne que les pages qui utiliseraient encore une balise <nav>
+                          (hors menu de la page Career).
+   ══════════════════════════════════════════════════════════════════════════ */
+nav:not(.career-menu) {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: 0 1.5rem 1rem;
+  border-bottom: 1px solid var(--border);
+}
+
+nav:not(.career-menu) a {
+  padding: .5rem 1rem;
+  border: 1px solid var(--accent);
+  border-radius: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-size: .95rem;
+}
+
+nav:not(.career-menu) a:hover { background: #e8eef5; }
+
+nav:not(.career-menu) a[aria-current═"page"] {
+  background: var(--accent);
+  color: var(--accent-text);
+  font-weight: 600;
+  cursor: default;
+}
+
+nav:not(.career-menu) a:focus-visible { outline: 3px solid #e0a800; outline-offset: 2px; }
+
+
+/* ══════════════════════════════════════════════════════════════════════════
+                                9. RESPONSIVE
+   ══════════════════════════════════════════════════════════════════════════ */
+@media (max-width: 600px) {
+  .sitebar a { padding: .6rem .7rem; font-size: .85rem; }
+}
+
+@media (max-width: 480px) {
+  .hero-link {
+    flex: 1 1 calc(50% - .6rem);
+    justify-content: center;
+  }
+}
