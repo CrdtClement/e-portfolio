@@ -435,3 +435,13 @@ main p a:not([class]) {
 @media (max-width: 600px) {
   .sitebar a { padding: .6rem .7rem; font-size: .85rem; }
 }
+.card-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+.card-row .project-card {
+  flex: 0 1 300px;
+}
