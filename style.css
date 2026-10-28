@@ -433,7 +433,7 @@ main p a:not([class]) {
 /* --- Accueil (hero) --- */
 .hero { padding: 1rem 0 2rem; }
 .hero h2 { margin-bottom: .5rem; font-size: 2rem; }
-.hero p { max-width: 42rem; }
+.hero p { max-width: none; }
 .hero-lead { max-width: 42rem; font-size: 1.15rem; }
 
 .hero-actions {
